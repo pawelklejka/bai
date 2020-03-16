@@ -4,24 +4,44 @@
 <head>
     <title>Shopping List</title>
     <meta charset="UTF-8">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 </head>
 
 <body>
     <h1>Shopping List</h1>
     <p>
-        New item: <input type="text" name="item">
-        <button type="button">Add</button>
+        New product: <input type="text" name="product" id="addProduct">
+        <button type="button" onclick="addProduct()">Add</button>
     </p>
-    <h3>List of items</h3>
-    <ol>
+    <h3>List of products</h3>
+    <ol id="shoppingList">
         <li>cooking oil</li>
         <li>breakfast cereal</li>
         <li>bread</li>
     </ol>
 
     <script>
-    	// a JavaScript code here ...
-
+        function addProduct() {
+            let inputValue = document.getElementById("addProduct").value
+            if(inputValue !== ""){
+                let liTag = document.createElement("li");
+                let productName = document.createTextNode(inputValue);
+                liTag.appendChild(productName);
+                let shoppingList = document.getElementById("shoppingList")
+                shoppingList.appendChild(liTag)
+                document.getElementById("addProduct").value = "";
+            }
+            $(document).ready(function(){
+                $("li").dblclick(function(){
+                    $(this).remove();
+                });
+            });
+        }  
+        $(document).ready(function(){
+            $("li").dblclick(function(){
+                $(this).remove();
+            });
+        });
     </script>
 </body>
 

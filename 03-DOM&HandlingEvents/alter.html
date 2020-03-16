@@ -5,23 +5,51 @@
 		<meta charset="UTF-8">
 	</head>
 	<body>
-		<h1>Another Brick in the Wall</h1>
-		<h3>Pink Floyd</h3>
-		<p>We don't need no education<br>
-		We don't need no thought control<br>
-		No dark sarcasm in the classroom<br>
-		Teachers leave them kids alone<br>
-		Hey! Teachers! Leave them kids alone<br>
-		All in all it's just another brick in the wall<br>
-		All in all you're just another brick in the wall</p>
+		<h1 onclick="displayPart2(this)">Another Brick in the Wall</h1>
+		<h3 onclick="displayDescription(this)">Pink Floyd</h3>
+		<p onclick="displayAsItalic(this)" oncopy="copyAlert()" style="visibility: hidden;">
+			We don't need no education<br>
+			We don't need no thought control<br>
+			No dark sarcasm in the classroom<br>
+			Teachers leave them kids alone<br>
+			Hey! Teachers! Leave them kids alone<br>
+			All in all it's just another brick in the wall<br>
+			All in all you're just another brick in the wall
+		</p>
 		
-		<p style="visibility: hidden;">Pink Floyd were an English rock band formed in London.<br>
+		<p onclick="displayImage()" style="visibility: hidden;">Pink Floyd were an English rock band formed in London.<br>
 		They achieved international acclaim with their progressive<br>
 		and psychedelic music.</p>
+		<div id="bandIMG"></div>
+
 		
 		<script>
-			// a JavaScript code here ...
-			
+			displayPart2 = (element) => {
+				let pTag = document.getElementsByTagName("p")
+				pTag[0].style.visibility = "visible"
+			}
+			displayDescription = (element) =>{
+				let pTag = document.getElementsByTagName("p")
+				pTag[1].style.visibility = "visible"
+			}
+			displayAsItalic = (element) =>{
+				let pTag = document.getElementsByTagName("p")
+				pTag[0].style.fontStyle = "italic"
+			}
+			changeBGColor = (element) =>{
+				let bodyTag = document.getElementsByTagName("body")
+				bodyTag[0].style.backgroundColor = "yellow"
+			}
+			copyAlert = () =>{
+				alert("© 2020 Pink Floyd\nAll Rights Reserved.")
+			}
+			displayImage = () =>{
+				let img = document.createElement("img");
+				img.setAttribute("src", "https://upload.wikimedia.org/wikipedia/en/thumb/d/d6/Pink_Floyd_-_all_members.jpg/250px-Pink_Floyd_-_all_members.jpg");
+				let imgDiv = document.getElementById("bandIMG");
+				imgDiv.appendChild(img);
+			}
+				
 		</script>
 	</body>
 </html>
