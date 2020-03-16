@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html>
+<body>
+    <script>
+        const title = "dr";
+        const name = "Mateusz";
+        const surname = 'Kubicki';
+        const street = 'Długa 15';
+        const city = 'Kraków';
+        const zip = '30-781';
+        const country = 'Poland';
+
+        console.log("Excercise 1 \n\n");
+        console.log(title + " " + name +" " + surname + " " + street + " " + city + " " + zip + " " + country);
+        console.log(title + " " + name + " " + surname + "\n" + "ul. " + street + "\n" + city + " " + zip + "\n" + country);
+
+        console.log("Excercise 2 \n\n");
+        // boki trójkąta
+        const a = 3;
+        const b = 4;
+        const c = 5;
+        const h = 7;
+
+        // Pole trókąta o bokach ..., ... oraz ... wynosi ... .
+        function triangleArea(a,b,c){
+            let halfOfPerimeter = (a+b+c)/2;
+            let area = Math.sqrt(halfOfPerimeter*(halfOfPerimeter-a)*(halfOfPerimeter-b)*(halfOfPerimeter-c));
+            console.log("Pole trókąta o bokach " + a + ", " + b + ", " + c + " wynosi: " + area);
+        }
+
+        triangleArea(a,b,c);
+
+        console.log("Excercise 3 \n\n");
+        // Display natural nums
+        let natural = [2,6,10,14]
+        console.log("Display with map")
+        natural.map((num) => {
+            return console.log(num);
+        });
+
+        function naturalDisplayForEach(arr){
+            arr.forEach(function(num) {
+                console.log(num);
+            }); 
+        }
+
+        function naturalDisplayFor(arr){
+            for (let i = 0; i < arr.length; i++) {
+                    console.log(arr[i]);
+                }
+        }
+
+        function naturalDisplayWhile(arr){
+            let count = 0
+            while(arr[count]){
+                console.log(arr[count]);
+                count++;
+            }
+        }
+
+        console.log("Display with forEach")
+        naturalDisplayForEach(natural);
+        console.log("Display with for")
+        naturalDisplayFor(natural);
+        console.log("Display with while")
+        naturalDisplayWhile(natural);
+
+        console.log("Excercise 4 \n\n");
+        function isCar(car1, car2, car3) {
+            if(car1 === car2 & car2 === car3){
+                return true
+            } else {
+                return false
+            }
+        }
+
+        console.log(isCar(true, true, true));
+        console.log(isCar(false, false, false));
+        console.log(isCar(true, true, false));
+        console.log(isCar(false, false, true));
+        console.log(isCar(true, false, true));
+
+        console.log("Excercise 5 \n\n")
+        let trapezoidSurfaceArea = (a, b, h) => console.log("Surface area of trapezoid with sides "
+             + a + ", " + b + " and height: " + h + " is equal: " + 1/2*(a + b)*h)
+        trapezoidSurfaceArea(5, 7, 3);
+
+        console.log("Excercise 6 \n\n")
+        const reverse = function(arr) {
+            arrReversed = [];
+            arr.forEach(item => arrReversed.push(item));
+            arrReversed.reverse();
+            return arrReversed;
+        }
+
+        const sort = (arr) => [...arr].sort()
+
+        const even = (arr) => [...arr].filter((num)=>num % 2 === 0)
+
+        numbers = [8,3,2,1,5,4,6];
+        console.log(numbers);
+        console.log(reverse(numbers));
+        console.log(even(numbers));
+        console.log(reverse(even(numbers)));
+        console.log(even(sort(numbers)));
+
+        console.log("Excercise 7 \n\n")
+        const randomNumberGenerator = (bottomRange, upperRange, number) => {
+            let rndArr = [];
+            for(i = 0; i < number; i++){
+                min = Math.ceil(bottomRange);
+                max = Math.floor(upperRange);
+                rndArr.push(Math.floor(Math.random() * (max - min + 1)) + min);
+            }
+            return rndArr;
+        }
+
+        console.log(randomNumberGenerator(5, 20, 10));
+
+        const displayRnd = arr => {
+            arr.map(num => console.log(num));
+        }
+
+        displayRnd(randomNumberGenerator(5, 20, 10));
+        
+        console.log("Excercise 8 \n\n");
+
+        class Person {
+            constructor(name, surname) {
+            this.name = name;
+            this.surname = surname;
+            }
+
+            get fullName() {
+            return `${this.name} ${this.surname.toUpperCase()}`;
+            }
+
+            get initials() {
+            return `${this.name[0]}.${this.surname[0]}`;
+            }
+        }
+
+        const jN = new Person('Jan', 'Nowak');
+        const pk = new Person('Paweł', 'Klejka');
+
+        console.log(jN.fullName);
+        console.log(jN.initials);
+        console.log(pk.fullName);
+        console.log(pk.initials);
+
+        console.log("Excercise 9 \n\n");
+        const names = ['Piotr', 'Anna', 'Michal', 'Paulina', 'Mateusz', 'Magda'];
+
+            class Students {
+                constructor(names) {
+                    this.names = names;
+                }
+
+                get() {
+                    return this.names;
+                }
+
+                sort() {
+                    return new Students(this.names.sort());
+                }
+
+                getFirst(n) {
+                    return this.names.slice(0, n);
+                }
+
+                startWith(letter) {
+                    return new Students(this.names.filter(word => word[0] === letter));
+                }
+            }
+
+            students = new Students(names);
+            console.log(students.get());
+            console.log(students.sort());
+            console.log(students.startWith('P'));
+            console.log(students.startWith('M').sort());
+            console.log(students.sort().getFirst(4));
+            console.log(students.startWith('M')
+                                .sort()
+                                .getFirst(2)
+                        );
+
+            console.log(students.get());
+        
+    </script>
+<h2>BAI </h2>
+<h3>Check console for output</h3>
+</body>
+</html> 

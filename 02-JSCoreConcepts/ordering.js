@@ -5,17 +5,9 @@ const reverse = function(arr) {
     return arrReversed;
 }
 
-const sort = function(arr) {
-    arrSorted = [];
-    // ...
-    return arrSorted;
-}
+const sort = (arr) => [...arr].sort()
 
-const even = function(arr) {
-    let arrEven = [];
-    // ...
-    return arrEven;
-}
+const even = (arr) => [...arr].filter((num)=>num % 2 === 0)
 
 numbers = [8,3,2,1,5,4,6];
 console.log(numbers);
